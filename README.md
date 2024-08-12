@@ -34,3 +34,21 @@ WHERE country = 'United States'
 ORDER BY population DESC
 LIMIT 2 OFFSET 2;
 ```
+
+#SQL Lesson 12: Order of execution of a Query
+
+1. Find the number of movies each director has directed
+```
+SELECT director, COUNT() FROM movies
+GROUP BY director;
+```
+
+2. Find the total domestic and international sales that can be attributed to each director
+```
+SELECT movies.director,
+SUM(boxoffice.domestic_sales) + SUM(boxoffice.international_sales) AS Total_Sales
+FROM movies
+JOIN boxoffice
+ON movies.id = boxoffice.movie_id
+GROUP BY movies.director;
+```
