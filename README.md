@@ -45,10 +45,10 @@ GROUP BY director;
 
 2. Find the total domestic and international sales that can be attributed to each director
 ```
-SELECT movies.director,
+SELECT Director,
 SUM(boxoffice.domestic_sales) + SUM(boxoffice.international_sales) AS Total_Sales
 FROM movies
 JOIN boxoffice
 ON movies.id = boxoffice.movie_id
-GROUP BY movies.director;
+GROUP BY Director;
 ```
